@@ -1,0 +1,117 @@
+:root {
+    --light-blue: #6AD5FB;
+    --white: #FFFFFF;
+    --gold: #FFB800;
+    --black-25: hsla(0, 0%, 0%, 0.25);
+}
+
+html {
+    font-family: "Karla", sans-serif;
+    color: var(--white);
+    background-image: url('assets/home.png');
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.inter-text {
+    font-family: "Inter", sans-serif;
+    font-weight: 200;
+}
+
+#stocklyze-logo {
+    width: 39px;
+    height: 40px;
+    border-radius: 9px;
+    background-color: var(--light-blue);
+}
+
+#stocklyze-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-left: 10px;
+    position: relative;
+    top: -15px;
+}
+
+#stocklyze-text:hover {
+    cursor: default;
+}
+
+.logo {
+    display: flex;
+    padding: 25px;
+}
+
+.hero { 
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 185px;
+}
+
+.hero:hover {
+    cursor: default;
+}
+
+#hero-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+.stock-codes-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 150px;
+    margin-left: 40px;
+}
+
+.stock-codes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    background-color: var(--black-25);
+    width: 150px;
+    height: 80px;
+    border-radius: 15px;
+}
+
+.stock-codes:hover {
+    background-color: var(--gold);
+    color: var(--white);
+    cursor: pointer;
+}
+
+#p-text {
+    font-size: 1rem;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    margin-top: 25px;
+}
+
+.foo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 30px;
+    /* background-color: var(--light-blue); */
+    text-align: center;
+}
+
+.foo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.foo a:hover {
+    color: var(--gold);
+    text-decoration: none;
+}
