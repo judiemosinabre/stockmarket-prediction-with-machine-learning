@@ -8,7 +8,7 @@
 html {
     font-family: "Karla", sans-serif;
     color: var(--white);
-    background-image: url('assets/home.png');
+    background-image: url('assets/hero.png');
     box-sizing: border-box;
     overflow: hidden;
 }
