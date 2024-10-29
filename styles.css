@@ -106,7 +106,7 @@ html {
     text-align: center;
 }
 
-.foo a {
+a {
     color: inherit;
     text-decoration: none;
 }
