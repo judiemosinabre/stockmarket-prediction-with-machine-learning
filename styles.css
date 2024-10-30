@@ -135,6 +135,8 @@ a {
         word-spacing: 1px;
         letter-spacing: 1px;
         margin-top: 25px;
+        width: 80%;
+        margin: 0 auto;
     }
 
     .stock-codes {
@@ -146,5 +148,20 @@ a {
         width: 110px;
         height: 80px;
         border-radius: 15px;
+    }
+
+    #stocklyze-logo {
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        background-color: var(--light-blue);
+    }
+    
+    #stocklyze-text {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 10px;
+        position: relative;
+        top: -11px;
     }
 }
