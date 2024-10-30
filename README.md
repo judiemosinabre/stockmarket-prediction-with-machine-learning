@@ -13,3 +13,22 @@ Our goal is to predict stock movement by analyzing previous price movements, tra
 - Linear Regression
 - SVM
 - LSTM
+
+## User Interface
+#### Home Page
+![home page](https://github.com/user-attachments/assets/501275fe-58e0-410a-91c4-9b45f63c94fa)
+
+#### Prediction with Analytics Chart
+![prediction page](https://github.com/user-attachments/assets/0a9ea494-9b32-45ed-b74e-87f67e3ed326)
+
+
+## Technologies:
+- HTML
+- CSS
+- JavaScript
+- Python (Flask or FastAPI)
+- Pandas
+- NumPy
+- Scikit-learn
+- TensorFlow or PyTorch (for LSTM)
+- Netlify (for hosting)
