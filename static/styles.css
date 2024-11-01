@@ -1,14 +1,18 @@
 :root {
     --light-blue: #6AD5FB;
     --white: #FFFFFF;
+    --black: #000000;
     --gold: #FFB800;
     --black-25: hsla(0, 0%, 0%, 0.25);
+    --light-blue-45: rgba(44, 66, 97, 0.45);
 }
 
 html {
     font-family: "Karla", sans-serif;
     color: var(--white);
     background-image: url('assets/hero.png');
+    object-fit: cover;
+    background-repeat: no-repeat;
     box-sizing: border-box;
     overflow: hidden;
 }
@@ -46,7 +50,7 @@ html {
     width: 100%;
     margin: 0 auto;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 155px;
 }
 
 .hero:hover {
@@ -116,10 +120,135 @@ a {
     text-decoration: none;
 }
 
+/* PSEi Styling */
+.main-contents {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+}
+
+.graph-section {
+    background-color: var(--light-blue-45);
+    width: 100%;
+    margin-left: 50px;
+    padding: 15px 45px;
+    border-radius: 35px;
+}
+
+.stock-code-text {
+    margin-bottom: 2px;
+    
+}
+
+.remove-margin {
+    margin-top: 0;
+}
+
+.line-indicator {
+    width: 50px;
+    height: 3px;
+}
+
+.actual-line {
+    background-color: var(--gold);
+    border: 1px solid var(--gold);
+}
+
+.predicted-line {
+    background-color: var(--black);
+    border: 1px solid var(--black);
+}
+
+.labels {
+    display: flex;
+    gap: 50px;
+    margin-top: 20px;
+    /* margin-top: 400px; */
+}
+
+.model-section {
+    background-color: var(--light-blue-45);
+    height: 400px;
+    padding: 15px 40px;
+    margin: 0;
+    border-radius: 35px;
+}
+
+.analysis-section {
+    width: 800px;
+    margin-right: 50px;
+    margin-left: 25px;
+    padding: 10px;
+}
+
+.evaluation-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.evaluation-section div {
+    width: 150px;
+    text-align: center;
+}
+
+.data-description {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.predicted-value {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.algorithm-switch {
+    display: flex;
+    gap: 25px;
+    background-color: var(--black-25);
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    height: 100px;
+    margin-top: 70px;
+    font-size: 1.2rem;
+}
+
+.algorithm-names {
+    color: var(--light-blue);
+}
+
+.algorithm-names:hover {
+    cursor: pointer;
+    color: var(--gold);
+}
+
+.current-algorithm {
+    color: var(--white);
+    background-color: var(--black);
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.current-algorithm:hover {
+    color: var(--white);
+    cursor: default;
+}
+
+.conclusion-h2 {
+    color: var(--light-blue);
+}
 /* Media Queries */
 @media (max-width: 768px) {
     .hero {
-        margin-top: 50px;
+        margin-top: 150px;
     }
 
     .hero-text {
@@ -164,4 +293,9 @@ a {
         position: relative;
         top: -11px;
     }
+}
+
+canvas {
+    background-color: white;
+    border: 1px solid #ccc;
 }

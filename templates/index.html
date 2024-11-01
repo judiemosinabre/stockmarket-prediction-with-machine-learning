@@ -2,17 +2,18 @@
 <html lang="en">
     <head>
         <title>Stocklyze</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Stock Market Wizard: Stock Prediction with Timeframe for Most Accurate Weeks">
         <meta name="keywords" content="Stock Market, Stock Prediction, Timeframe, Accurate Weeks">
-        <link rel="stylesheet" href="styles.css">
         <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
     <body>
         <header>
@@ -27,7 +28,7 @@
                 <p id="p-text" class="inter-text">Stocklyze uses Linear Regression, SVM, and LSTM algorithms to provide precise, data-driven insights for Philippine stock investments.</p>
 
                 <div class="stock-codes-section">
-                    <div id="" class="stock-codes"><a href="psei.html">PSEi</a></div>
+                    <div id="" class="stock-codes"><a href="{{ url_for('psei') }}">PSEi</a></div>
                     <div id="" class="stock-codes"><a href="pse.html">PSE</a></div>
                 </div>
             </section>
