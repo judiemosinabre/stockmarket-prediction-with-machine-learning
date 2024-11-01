@@ -31,4 +31,4 @@ Our goal is to predict stock movement by analyzing previous price movements, tra
 - NumPy
 - Scikit-learn
 - TensorFlow or PyTorch (for LSTM)
-- Netlify (for hosting)
+
