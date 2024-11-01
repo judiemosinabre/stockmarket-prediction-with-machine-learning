@@ -5,6 +5,7 @@
     --gold: #FFB800;
     --black-25: hsla(0, 0%, 0%, 0.25);
     --light-blue-45: rgba(44, 66, 97, 0.45);
+    --green :green;
 }
 
 html {
@@ -130,7 +131,7 @@ a {
 
 .graph-section {
     background-color: var(--light-blue-45);
-    width: 100%;
+    width: 50%;
     margin-left: 50px;
     padding: 15px 45px;
     border-radius: 35px;
@@ -151,13 +152,13 @@ a {
 }
 
 .actual-line {
-    background-color: var(--gold);
-    border: 1px solid var(--gold);
+    background-color: var(--green);
+    border: 1px solid var(--green);
 }
 
 .predicted-line {
-    background-color: var(--black);
-    border: 1px solid var(--black);
+    background-color: var(--gold);
+    border: 1px solid var(--gold);
 }
 
 .labels {
@@ -208,12 +209,21 @@ a {
     display: flex;
     gap: 25px;
     background-color: var(--black-25);
-    justify-content: center;
     align-items: center;
     border-radius: 15px;
+    width: 70%;
     height: 100px;
-    margin-top: 70px;
+    margin-top: 50px;
     font-size: 1.2rem;
+    
+}
+
+.second-algo {
+    margin-left: 20px;
+}
+
+.third-algo {
+    margin-left: 40px;
 }
 
 .algorithm-names {
@@ -244,6 +254,7 @@ a {
 
 .conclusion-h2 {
     color: var(--light-blue);
+    margin-top: 100px;
 }
 /* Media Queries */
 @media (max-width: 768px) {
