@@ -60,5 +60,9 @@ def index():
 def psei():
     return render_template('psei.html')
 
+@app.route('/pse')
+def pse():
+    return render_template('pse.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
