@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Stocklyze | PSEi</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='assets/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='assets/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='assets/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Stock Market Wizard: Stock Prediction with Timeframe for Most Accurate Weeks">
+        <meta name="keywords" content="Stock Market, Stock Prediction, Timeframe, Accurate Weeks">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,800;1,800&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <header>
+            <section class="logo">
+                <div id="stocklyze-logo"></div>
+                <h2 id="stocklyze-text"><a href="{{ url_for('index') }}">stocklyze</a></h2>
+            </section>
+        </header>
+        <main>
+            <section class="search-bar">
+                <div>
+                    <p></p>
+                    <div></div>
+                </div>
+            </section>
+            <section class="main-contents">
+                <div class="graph-section">
+                    <h2 class="hero-text stock-code-text">PSE</h2>
+                    <p class="inter-text remove-margin">Philippine Stock Exchange, Inc.</p>
+                    <div class="model-section">
+                        <!--MODEL-->
+                        <canvas id="stockChart" width="100%" height="50"></canvas>
+                    </div>
+                    <div class="labels">
+                        <div>
+                            <hr class="actual-line line-indicator">
+                            <p class="inter-text">actual movement</p>
+                        </div>
+                        <div>
+                            <hr class="predicted-line line-indicator">
+                            <p class="inter-text">predicted movement</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="analysis-section">
+                    <div class="evaluation-section">
+                        <div>
+                            <p class="inter-text data-description">training MSE</p>
+                            <h2 class="predicted-value">2.32</h2>
+                        </div>
+                        <div>
+                            <p class="inter-text data-description">testing MSE</p>
+                            <h2 class="predicted-value">2.96</h2>
+                        </div>
+                        <div>
+                            <p class="inter-text data-description">training R-squared</p>
+                            <h2 class="predicted-value">0.99</h2>
+                        </div>
+                        <div>
+                            <p class="inter-text data-description">testing R-squared</p>
+                            <h2 class="predicted-value">0.99</h2>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="hero-text conclusion-h2">Conclusion</h2>
+                        <p class="inter-text conclusion-text">
+                            The model demonstrates <strong>high accuracy</strong>, shown by its high R-squared, capturing stock price trends effectively. With
+                            minimal difference in MSE between training and testing, it generalizes well, minimizing overfitting. Its low MSE values
+                            further enhance prediction reliability, making it suitable for stock forecasting.
+                        </p>
+                    </div>
+                    <div class="algorithm-switch">
+                        <p class="algorithm-names current-algorithm">linear regression</p>
+                        <p class="algorithm-names second-algo"><a href="">SVM</a></p>
+                        <p class="algorithm-names third-algo"><a href="">LSTM</a></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script>
+            // Fetch data from the Flask backend
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    // Get the 2 sets of dates and prices for training and testing
+                    const datesTrain = data.dates_train;
+                    const yTrain = data.y_train;
+                    const yPredTrain = data.y_pred_train;
+    
+                    const datesTest = data.dates_test;
+                    const yTest = data.y_test;
+                    const yPredTest = data.y_pred_test;
+    
+                    // Combine dates for the x-axis
+                    const allDates = datesTrain.concat(datesTest);
+    
+                    // Setup Chart.js with the fetched data
+                    const ctx = document.getElementById('stockChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: allDates,  // x-axis dates
+                            datasets: [
+                                {
+                                    label: 'Actual Training Prices',
+                                    data: yTrain,
+                                    borderColor: 'blue',
+                                    fill: false,
+                                    tension: 0.1  // Smoother lines
+                                },
+                                {
+                                    label: 'Predicted Training Prices',
+                                    data: yPredTrain,
+                                    borderColor: 'red',
+                                    fill: false,
+                                    tension: 0.1
+                                },
+                                {
+                                    label: 'Actual Testing Prices',
+                                    data: yTest,
+                                    borderColor: 'green',
+                                    fill: false,
+                                    tension: 0.1
+                                },
+                                {
+                                    label: 'Predicted Testing Prices',
+                                    data: yPredTest,
+                                    borderColor: 'orange',
+                                    fill: false,
+                                    tension: 0.1
+                                }
+                            ]
+                        },
+                        options: {
+                            responsive: true,
+                            plugins: {
+                                title: {
+                                    display: true,
+                                    text: 'Stock Price Prediction using Linear Regression'
+                                },
+                                legend: {
+                                    display: true,
+                                    position: 'top'
+                                }
+                            },
+                            scales: {
+                                x: {
+                                    display: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Date'
+                                    }
+                                },
+                                y: {
+                                    display: true,
+                                    title: {
+                                        display: true,
+                                        text: 'Stock Price'
+                                    }
+                                }
+                            }
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        </script>
+    </body>
+</html>
