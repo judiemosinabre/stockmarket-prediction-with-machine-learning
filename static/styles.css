@@ -133,7 +133,7 @@ a {
     background-color: var(--light-blue-45);
     width: 50%;
     margin-left: 50px;
-    padding: 15px 45px;
+    padding: 5px 30px;
     border-radius: 35px;
 }
 
@@ -170,7 +170,6 @@ a {
 
 .model-section {
     background-color: var(--light-blue-45);
-    height: 400px;
     padding: 15px 40px;
     margin: 0;
     border-radius: 35px;
